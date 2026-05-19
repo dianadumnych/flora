@@ -193,12 +193,3 @@ nav a.active {
 .res-footer { border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; align-items: center; }
 .res-tags { display: flex; flex-wrap: wrap; gap: 5px; }
 .tag { background: #f6eff2; color: #d77a93; font-size: 11px; padding: 3px 8px; border-radius: 10px; }
-.res-text {
-    font-size: 18px;
-    margin: 20px 0;
-    font-style: italic;
-    line-height: 1.55;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    white-space: pre-wrap;
-}
