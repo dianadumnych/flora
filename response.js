@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Відображення результату
     function showSuccessResult(name, text, rating, category) {
         form.style.display = 'none';
-        document.getElementById('formTitle').textContent = "Дякуємо за відгук! ";
+        document.getElementById('formTitle').textContent = "Дякуємо за відгук!";
 
         document.getElementById('resName').textContent = name;
         document.getElementById('resContent').textContent = `"${text}"`;
