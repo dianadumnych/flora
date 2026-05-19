@@ -8,7 +8,7 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   color: #111111;
   background-color: #f6eff2;
-  background-image: url('images/homebg.jpg');
+  background-image: url('./images/homebg.jpg');
   background-size: cover;
   background-attachment: fixed;
 
