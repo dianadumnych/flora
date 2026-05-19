@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusText = document.getElementById('ratingStatus');
     const stars = document.querySelectorAll('input[name="rating"]');
 
-    // ==================== MockAPI Endpoint ====================
-   const API_URL = 'https://69f10d27c1533dbedc9e0fb9.mockapi.io/floralspace/response'; // Зміни на свій актуальний ресурс, якщо потрібно (наприклад /response)
+    const API_URL = 'https://69f10d27c1533dbedc9e0fb9.mockapi.io/floralspace/response';
 
-    // Попередня логіка зірок
+    // ==================== Попередня логіка зірок ====================
     stars.forEach(star => {
         star.addEventListener('change', (e) => {
             const val = parseInt(e.target.value);
@@ -25,16 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
         
         let isValid = true;
-        const name = document.getElementById('userName').value.trim();
+        const nameInput = document.getElementById('userName');
+        let name = nameInput.value.trim();
         const text = document.getElementById('reviewText').value.trim();
         const ratingInput = document.querySelector('input[name="rating"]:checked');
         const category = document.getElementById('category').value;
 
         // ====================== ВАЛІДАЦІЯ ======================
-        if (!name) {
+        
+        // Обмеження на 20 символів
+        if (name.length > 20) {
+            document.getElementById('nameError').textContent = "Ім'я не може перевищувати 20 символів";
+            isValid = false;
+        } 
+        else if (!name) {
             document.getElementById('nameError').textContent = "Введіть ім'я";
             isValid = false;
-        } else if (!/^[а-яА-Яa-zA-ZіІїЇєЄґҐ\s]+$/.test(name)) {
+        } 
+        else if (!/^[а-яА-Яa-zA-ZіІїЇєЄґҐ\s]+$/.test(name)) {
             document.getElementById('nameError').textContent = "Лише літери";
             isValid = false;
         }
@@ -60,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             additionally: getCheckedOptions()
         };
 
-        // ====================== AJAX ЗАПИТ (fetch) ======================
+        // ====================== AJAX ЗАПИТ ======================
         const submitBtn = form.querySelector('.submit-btn');
         const originalBtnText = submitBtn.textContent;
 
@@ -76,14 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(reviewData)
             });
 
-            if (!response.ok) {
-                throw new Error('Помилка сервера');
-            }
+            if (!response.ok) throw new Error('Помилка сервера');
 
             const result = await response.json();
-            console.log('✅ Відгук успішно відправлено на сервер:', result);
+            console.log('✅ Відгук успішно відправлено:', result);
 
-            // Показуємо результат (використовуємо твою існуючу логіку)
             showSuccessResult(name, text, ratingInput.value, category);
 
         } catch (error) {
@@ -95,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Допоміжна функція для збору обраних чекбоксів
+    // Допоміжна функція для чекбоксів
     function getCheckedOptions() {
         const checked = [];
         document.querySelectorAll('.opt-check:checked').forEach(cb => {
@@ -105,10 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return checked.join(', ');
     }
 
-    // Відображення результату після відправки
+    // Відображення результату
     function showSuccessResult(name, text, rating, category) {
         form.style.display = 'none';
-        document.getElementById('formTitle').textContent = "Дякуємо за відгук! ✅";
+        document.getElementById('formTitle').textContent = "Дякуємо за відгук! ";
 
         document.getElementById('resName').textContent = name;
         document.getElementById('resContent').textContent = `"${text}"`;
