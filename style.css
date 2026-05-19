@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #111111;
+  background-color: #f0ece1;
+}
+
+.header {
+  background-color: rgba(255, 255, 255, 0.16);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.menu-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 30px;
+  color: #111111;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111111;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 3px;
+  font-size: 18px;
+}
+
+nav a:hover,
+nav a.active {
+  border-bottom: 2px solid #d77a93;
+}
+
+.about-page {
+  min-height: 100vh;
+  padding: 100px 16px 40px 16px;
+}
+
+.about-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: #f7f5ec;
+  border-left: 14px solid #f1c8d4;
+  border-right: 14px solid #f1c8d4;
+  padding: 24px 34px 34px 34px;
+}
+
+.about-wrap h1 {
+  text-align: center;
+  font-size: 58px;
+  margin-bottom: 24px;
+}
+
+.about-content {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.about-content img {
+  width: 48%;
+  object-fit: cover;
+}
+
+.about-text {
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-text p {
+  font-size: 24px;
+  line-height: 1.5;
+}

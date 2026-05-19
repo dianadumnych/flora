@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floral Space | Головна</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+   <header class="header">
+    <div class="menu-box">
+      <a class="logo" href="index.html">Floral Space</a>
+      <nav>
+        <a class="active" href="index.html">Головна сторінка</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="about.html">Про нас</a>
+      </nav>
+    </div>
+  </header>
+  <main class="hero">
+    <div class="overlay"></div>
+    <section class="content">
+      <h1>Floral Space</h1>
+      <p>
+        Квітковий простір, де кожна деталь має значення.<br>
+        Ми створюємо букети, що передають емоції — від легкого настрою до особливих моментів у житті.<br>
+        Стиль і любов до квітів — у кожній композиції.
+      </p>
+      <a class="btn" href="catalog.html">Придбати зараз</a>
+    </section>
+  </main>
+
+  <section class="reviews-section">
+    <div class="reviews-content">
+      <h2 id="formTitle">Залишити відгук</h2>
+      
+      <form id="reviewForm" class="review-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="userName">Ваше ім'я</label>
+            <input type="text" id="userName">
+            <span class="error-msg" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Категорія товару</label>
+            <select id="category">
+              <option value="" disabled selected>Оберіть категорію...</option>
+              <option value="Букети">Букети</option>
+              <option value="Кімнатні рослини">Кімнатні рослини</option>
+              <option value="Декор">Декор</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reviewText">Ваш відгук</label>
+          <textarea id="reviewText" rows="4"></textarea>
+          <span class="error-msg" id="textError"></span>
+        </div>
+
+        <div class="form-group">
+          <label>Ваша оцінка:</label>
+          <div class="star-rating">
+            <input type="radio" name="rating" value="5" id="star5"><label for="star5">★</label>
+            <input type="radio" name="rating" value="4" id="star4"><label for="star4">★</label>
+            <input type="radio" name="rating" value="3" id="star3"><label for="star3">★</label>
+            <input type="radio" name="rating" value="2" id="star2"><label for="star2">★</label>
+            <input type="radio" name="rating" value="1" id="star1"><label for="star1">★</label>
+          </div>
+          <p id="ratingStatus" class="dynamic-status"></p>
+          <span class="error-msg" id="ratingError"></span>
+        </div>
+
+        <div class="form-group">
+          <label>Додатково:</label>
+          <div class="checkbox-list">
+            <div class="checkbox-item">
+              <input type="checkbox" id="recommend" class="opt-check">
+              <label for="recommend">Рекомендую цей магазин</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="fastDelivery" class="opt-check">
+              <label for="fastDelivery">Швидка доставка</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="freshFlowers" class="opt-check">
+              <label for="freshFlowers">Квіти свіжі та ароматні</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="subscribe" class="opt-check">
+              <label for="subscribe">Підписатися на оновлення цін</label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Надіслати відгук</button>
+      </form>
+
+      <div id="reviewResult" class="result-card">
+        <div id="resStars" class="res-stars"></div>
+        <p id="resContent" class="res-text"></p>
+        <div class="res-footer">
+          <div class="res-info">
+            <strong id="resName"></strong>
+            <span id="resCategory"></span>
+          </div>
+          <div id="resTags" class="res-tags"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="response.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floral Space | Каталог</title>
+  <link rel="stylesheet" href="catalog.css">
+</head>
+<body>
+  <header class="header">
+    <div class="menu-box">
+      <a class="logo" href="index.html">Floral Space</a>
+      <nav>
+        <a href="index.html">Головна сторінка</a>
+        <a class="active" href="catalog.html">Каталог</a>
+        <a href="about.html">Про нас</a>
+      </nav>
+    </div>
+  </header>
+<div class="bestsellers-section">
+        <h1>Бестселери</h1>
+        <div class="products">
+          <article class="card">
+            <img src="images/cat1.JPG" alt="Моно з гвоздик">
+            <h2>Моно з гвоздик</h2>
+            <p>1850 грн</p>
+            <button class="add-btn" type="button" data-tooltip="Складається з: Ніжно-рожеві гвоздики - 41шт.">Детальніше</button>
+          </article>
+
+          <article class="card">
+            <img src="images/cat2.JPG" alt="Дофаміновий букет">
+            <h2>Дофаміновий букет</h2>
+            <p>2100 грн</p>
+            <button class="add-btn" type="button" data-tooltip="Складається з: Біла еустома - 1шт, Рожева троянда - 1шт, Кущова троянда - 1 шт, Біла гвоздика - 1шт, Ніжно-рожева гвоздика - 1шт, Фіолетова гвоздика - 1шт, Рожевий тюльпан - 1шт, Рожевий ранункулюс - 1 шт, Евкаліпт - 9шт, Фіолетовий гіацинт - 1шт, Жовта матіола - 1шт, Рожеві колоски - 20шт, Рожеве пірʼя - 3 шт.">Детальніше</button>
+          </article>
+
+          <article class="card">
+            <img src="images/cat3.JPG" alt="Моно з гортензій">
+            <h2>Моно з гортензій</h2>
+            <p>1700 грн</p>
+            <button class="add-btn" type="button" data-tooltip="Складається з: Рожева гортензія - 5шт.">Детальніше</button>
+          </article>
+
+          <article class="card">
+            <img src="images/cat4.JPG" alt="Рожевий мікс">
+            <h2>Рожевий мікс</h2>
+            <p>1900 грн</p>
+            <button class="add-btn" type="button" data-tooltip="Складається з: Гортензія - 4шт, Еустома - 3шт, Гвоздика - 5шт, Хризантема - 4шт.">Детальніше</button>
+          </article>
+
+          <article class="card">
+            <img src="images/cat5.JPG" alt="Нюдовий мікс">
+            <h2>Нюдовий мікс</h2>
+            <p>1300 грн</p>
+            <button class="add-btn" type="button" data-tooltip="Складається з: Гортензія - 2шт, Білі троянди - 3шт, Кущова троянда - 3шт, Гіацинт - 2шт, Фрезія - 2шт.">Детальніше</button>
+          </article>
+
+          <article class="card">
+            <img src="images/cat6.JPG" alt="Композиція в боксі">
+            <h2>Композиція в боксі</h2>
+            <p>2300 грн</p>
+            <button class="add-btn" type="button" data-tooltip="Складається з: Троянда - 9шт, Ранункулюс рожевий - 6шт, Ранункулюс білий - 4 шт, Еустома - 3 шт, Хризантема - 2 шт, Евкаліпт - 3 шт.">Детальніше</button>
+          </article>
+        </div>
+      </div>
+  <main class="catalog-page">
+    <section class="catalog-wrap">
+      <h1 style="font-size: 46px; margin-bottom: 24px;">Каталог товарів</h1>
+      <form id="filter-form" class="filter-form">
+        <div class="filter-group">
+          <label for="category-select">Категорія каталогу:</label>
+          <select id="category-select" name="category">
+            <option value="">Всі категорії</option>
+            <option value="монобукети">Монобукети</option>
+            <option value="весільні букети">Весільні букети</option>
+            <option value="мікс квітів">Мікс квітів</option>
+            <option value="кімнатні рослини">Кімнатні рослини</option>
+            <option value="декор">Декор</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="price-max">Максимальна ціна (грн):</label>
+          <input type="number" id="price-max" name="price" placeholder="Наприклад: 2000" min="0">
+        </div>
+      </form>
+
+      
+
+      <div id="api-products-section" class="api-products-section" >
+        
+        
+        <div id="message-container" class="message-container"></div>
+        
+        <div id="api-products-container" class="products"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="catalog.js"></script>
+</body>
+</html>
