@@ -159,3 +159,10 @@ nav a.active {
   padding: 40px;
   color: #666;
 }
+.review-text, 
+.review-card p {
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto;
+  white-space: pre-wrap;
+}
