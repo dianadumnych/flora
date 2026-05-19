@@ -1,19 +1,17 @@
 async function loadReviews() {
   const container = document.getElementById('reviews-container');
   
-  try {
-    const response = await fetch('https://69f10d27c1533dbedc9e0fb9.mockapi.io/floralspace/response', {
-      method: 'GET',
-      mode: 'cors',           // явно вказуємо
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
+  if (!container) return;
 
-    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+  try {
+    const response = await fetch('https://69f10d27c1533dbedc9e0fb9.mockapi.io/floralspace/response');
     
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const reviews = await response.json();
-    
+
     container.innerHTML = '';
 
     if (!reviews || reviews.length === 0) {
@@ -24,10 +22,9 @@ async function loadReviews() {
     reviews.forEach(review => {
       const reviewEl = document.createElement('div');
       reviewEl.className = 'review-card';
-      
-      const stars = review.rating 
-        ? '★'.repeat(Math.floor(review.rating)) + '☆'.repeat(5 - Math.floor(review.rating))
-        : '★★★★★';
+
+      const rating = review.rating || 5;
+      const stars = '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
 
       reviewEl.innerHTML = `
         <div class="review-header">
@@ -42,8 +39,13 @@ async function loadReviews() {
 
   } catch (error) {
     console.error('Помилка завантаження відгуків:', error);
-    container.innerHTML = `<p class="error">Не вдалося завантажити відгуки.<br>${error.message}</p>`;
+    container.innerHTML = `
+      <p class="error">
+        Не вдалося завантажити відгуки.<br>
+        <small>Спробуйте оновити сторінку.</small>
+      </p>`;
   }
 }
 
+// Запускаємо після повного завантаження сторінки
 window.addEventListener('load', loadReviews);
